@@ -1,0 +1,39 @@
+# RUE AND THE TROLL UNDER BRIDGEWATER BRIDGE — story bible
+
+Cozy fairy-tale fantasy for ages 10-12: warm, funny, gently adventurous, in the tradition of a storybook read by lamplight. A market-town of stone bridges, tea shops and chimney smoke, with a troll under the oldest bridge. Nothing spooky, no real menace: the "danger" is a town's fear of something it has never looked at closely. No gore, no killing, no romance, no modern slang, no phones or technology. Magic is small and domestic (a kettle that hums, moss that grows in patterns, a troll who is strong as a mountain and shy as a rabbit).
+
+## Voice
+THIRD PERSON, PAST TENSE, close on Rue, told by a warm, wry, storyteller narrator who addresses the reader lightly ("You may think...", "Now, it is a well-known fact in Bridgewater that...") and loves small domestic details (the smell of Gran's scones, the way a kettle sounds when it is thinking). Gentle, dry humor, fairy-tale rhythm, short comic dialogue. When something truly hurts the narrator gets plain and quiet. Each chapter opens with one italic entry from the *Bridgewater Almanac*, the town's book of sensible rules, all of which are wrong in some way the chapter quietly shows: "*From the Bridgewater Almanac: Never cross the old bridge after dark, for the troll is hungry, and he is not fussy.*" The entry is on its own line, then a blank line. The almanac is pompous, confident and wrong; the final entry is rewritten.
+Voice sample:
+"*From the Bridgewater Almanac: The troll under the old bridge is enormous, hungry and wicked. Do not look at him. Do not speak to him. Above all, do not ask him questions.*
+
+The town of Bridgewater had four bridges, sixty-one chimneys and one troll, and it was the troll that everybody talked about.
+
+Rue Alder, who was ten, had never seen him. Nobody had, exactly. That was the trouble with a troll you had never seen: he could be as large and as terrible as you liked, and every year, in Bridgewater, he got a little larger and a little more terrible, the way a fish does when it is being described."
+
+## The premise
+Rue Alder, 10, lives with her Gran above the Kettle & Crumb tea shop in Bridgewater while her mother Mari captains a river barge far downstream. Rue is kind, curious and lonely: she is the girl nobody sits with at lunch, a slight outsider in a town where everybody has known everybody forever. She believes "you can't be lonely if you're useful," so she runs errands and never asks for anything. On a dare from the Bridge Club (Skye Tanner and Cedric Pettibone's group), Rue crosses the old bridge at dusk and hears someone crying underneath: the troll, whom the town calls Old Mossback, sits with a broken lantern and a bad tooth, dreading the Founders' Fair, when the town celebrates by throwing stones at the bridge "for luck." She helps him. He is enormous, mossy, gentle, well-read and lonely, and his real name is Hobb. From then on she has a friend nobody may know about, until the town decides to hunt him.
+
+## Cast (keep looks and habits EXACTLY consistent)
+- **Rue (Ruella) Alder**, 10. Small, sturdy, freckled, curly red-brown hair in two puffs tied with green yarn, a patched mustard-yellow raincoat, big rubber boots that used to be someone else's. Curious, polite, stubborn about being helpful; hides loneliness behind chores. Habit: says "Right then" when scared.
+- **Hobb** (the town's "Old Mossback"), a troll about ten feet tall: enormous, grey-green and mossy, with a broad kind face, two small blunt tusks, ears like leaves, round spectacles mended with twine, and a patched waistcoat with too many pockets. Keeps the old bridge in repair (has for three hundred years), reads everything, gardens moss, and sings very quietly and very badly. Shy, funny, proud, easily hurt. Toll rule: he charges "one story" instead of coins, nobody remembers why. Hates being stared at. His refrain: "It's only a bridge. Somebody has to hold it up."
+- **Gran (Wilhelmina) Alder**, 70s. Round, quick, silver bun, flour on her sleeves, half-moon glasses. Runs the Kettle & Crumb; sharp tongue, soft heart; keeps one locked drawer she never explains (it holds a troll-sized button, and the story of the toll). Her secret: as a girl she made a promise to the troll and broke it. Refrain: "Sit down, you'll fall down."
+- **Mari Alder**, Rue's mother, captain of the barge *Persistent*: tall, sunburnt, blue cap, laughs loudly; arrives at the end.
+- **Cedric Pettibone**, 11, the Mayor's nephew: skinny, slicked-back hair, red waistcoat, a sneer that is really fear; invents troll stories to seem brave. He is the one who throws the first stone and, later, the one who learns.
+- **Skye Tanner**, 11: tall, long fair braid, leader of the Bridge Club; not cruel, just used to being followed.
+- **Perrin Fen**, 10: thin, quiet, oversized wool hat, ink-stained fingers, moved to Bridgewater last spring and eats lunch alone; keeps a notebook of drawings. Becomes Rue's first real friend.
+- **Mayor Ambrose Pettibone**: round, pompous, top hat and chain of office; loves committees; not wicked, only certain.
+- **Biscuit**, the Kettle & Crumb's enormous orange cat, who likes Hobb best of all.
+- Places: Bridgewater (four bridges, sixty-one chimneys), the Kettle & Crumb, the schoolhouse, the Founders' Green, the old bridge (Bridgewater Bridge, oldest and humpbacked), Hobb's home under the arch (a tidy hollow of books, a humming kettle, a moss garden lit by a lantern), the River Wend, the millrace, Gran's locked drawer.
+
+## The plan of the story
+Ch1-4: Bridgewater and its almanac, Rue's loneliness and Gran, the Bridge Club's dare, Rue meets Hobb by the broken lantern and promises not to tell. Ch5-9: the secret friendship: tea under the arch, the toll of a story, Hobb's moss garden, Rue mends his lantern and his tooth is fixed with Gran's clove oil; Rue befriends Perrin (invites him to lunch); Hobb tells her why nobody remembers the toll; Cedric grows suspicious. Ch10-14: the Founders' Fair approaches; the Mayor announces a "Troll Cleansing" to make the bridge "safe"; Cedric's tall tales; Rue loses her temper and blurts that the troll is kinder than all of them; the Bridge Club follows her at night; Hobb is discovered and stones are thrown; Hobb, hurt, tells Rue never to come back. Ch15-19: Rue's grief; Gran's confession and the locked drawer; the flood: the River Wend rises the night of the Fair, the neglected bridge cracks with the whole town's children on it; Hobb holds it up on his shoulders until everyone is across; the town sees him; Cedric's apology; Hobb's forgiveness; Rue learns to forgive Gran and herself. Ch20: the Fair, the toll paid in stories, Mari's barge, the almanac rewritten.
+
+## Motifs
+The Bridgewater Almanac's wrong rules (last entry rewritten); the toll of one story; Hobb's twine-mended spectacles and the humming kettle; "Right then" (Rue) and "Somebody has to hold it up" (Hobb); the lantern; Gran's locked drawer with the troll-sized button; Biscuit the cat; scones; moss growing into the shapes of what Hobb feels.
+
+## The lesson (dramatize; NEVER preach)
+Look past appearances: what frightens us is often only what we have not looked at. Be kind to the left-out (Rue, Hobb, Perrin, even Cedric). Forgiveness: Rue must forgive Cedric, Gran, herself and be forgiven by Hobb. Never let the narrator moralize except one plain line near the end. Do not make the villagers monsters: they are frightened and stubborn, and they can change. Hobb's hurt is real and he is not fixed by one apology; forgiveness is slow and costs something.
+
+## Things to avoid
+No spooky or scary content (the troll is never menacing, the flood is exciting not terrifying, no one dies). No violence beyond a few thrown pebbles (handled as shameful). No romance. No modern slang, no technology. No cruelty left unresolved. Don't make Rue perfect: she lies to Gran, she loses her temper.

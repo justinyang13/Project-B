@@ -90,7 +90,7 @@ Project-B/
 | 3 | The Mapmaker's Apprentice | Released | v1.0 |
 | 4 | Pip and the Storm-Sparrows | Released | v1.0 |
 | 5 | Fifty-One Ways to Lose a Soccer Game | Released | v1.0 |
-| 6 | Rue and the Troll Under Bridgewater Bridge | Queued | — |
+| 6 | Rue and the Troll Under Bridgewater Bridge | Released | v1.0 |
 | 7 | The Garden at the Edge of the Concrete | Queued | — |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
