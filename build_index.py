@@ -8,13 +8,13 @@ ROOT = pathlib.Path(__file__).parent
 ORDER = [
     "juno-vale-and-the-tide-that-forgot",
     "rue-and-the-troll-under-bridgewater-bridge",
-    "pip-and-the-storm-sparrows",
     "the-garden-at-the-edge-of-the-concrete",
+    "pip-and-the-storm-sparrows",
     "the-day-that-wouldnt-end",
+    "mo-and-the-mountain-that-walks",
     "zia-and-the-runaway-space-station",
     "fifty-one-ways-to-lose-a-soccer-game",
     "the-mapmakers-apprentice",
-    "mo-and-the-mountain-that-walks",
 ]
 books = []
 for f in sorted(ROOT.glob("*/book.json")):
