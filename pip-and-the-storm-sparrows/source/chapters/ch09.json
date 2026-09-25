@@ -1,0 +1,30 @@
+{
+ "n": 9,
+ "title": "The Marsh Wind",
+ "part": "PART TWO: RISING WIND",
+ "pages": [
+  {
+   "text": "*Sky Report: humid, sinking air, a cold shadow overhead.*\n\nThe Salt Marsh stretched out ahead of them, a vast silver quilt of reeds and water. The air here was different. It did not push or pull. It sat heavy on their backs, thick and wet, smelling of salt and rotting grass. It sucked at their wings, making every beat feel like flapping through syrup.\n\nPip felt her chest burn. The wind was low, sliding under their bellies, trying to drag them down into the shining pools. Beside her, Nettle flew tight and low, her big eyes narrowed against the glare. She was not looking at the water. She was looking up.\n\n\"Nettle,\" Pip wheezed, her voice thin in the damp air. \"Is it...\"\n\n\"I see it,\" Nettle whispered. Her voice shook, a tiny bird in a storm. She pointed a trembling wing upward. Above the shimmering heat haze, a dark shape circled. It was huge. Its feathers were steel-grey, and its head turned with a slow, terrifying patience.\n\n\"Skua Grey,\" Nettle breathed. The name hung in the air, cold and sharp.",
+   "image": "Two tiny sparrows fly low over a shimmering salt marsh with silver reeds and dark pools; a large, shadowy sea hawk circles high above in the humid sky."
+  },
+  {
+   "text": "Everyone knew Skua Grey. She was not a hunter who rushed. She was a hunter who waited. She owned the middle of the sky, the open, bright, dangerous space where a sparrow’s shadow was as big as a coin and as easy to see.\n\nTuck’s rule was simple: fly the edge, not the middle. Stay where the reeds hid you, where the cliff broke your shadow. But the Marsh Wind was a traitor. It did not care about rules. It dragged Pip toward the open center, where the water glinted like a mirror and there was nowhere to hide.\n\nHer wings ached. The heavy air was crushing her. Every time she tried to bank toward the reed line, the wind shoved her back out. She was tired. Her small body was working too hard, burning through every last bit of strength.\n\n\"Stay low!\" Nettle hissed, but the wind was louder. It was pulling them both, slowly, inexorably, into the open.",
+   "image": "A tiny sparrow struggles against a heavy, invisible current over a wide, reflective salt marsh, her wings beating hard; a skinny freckled sparrow flies close behind, looking worried."
+  },
+  {
+   "text": "Nettle’s legs trembled so hard her feathers ruffled, but her eyes stayed sharp. She scanned the reeds, the sky, and the way the light slid across the mud. There, just beyond the drag of the heavy air, the reeds leaned a fraction to the left. The sun had baked the black mud in a shallow bay until it radiated heat. A thermal, a ladder made of warm air, waited just there.\n\n\"Here!\" Nettle called out, her voice cutting through the damp silence. \"Left! Three wingbeats!\"\n\nPip did not think. She trusted her friend. Banking hard into the rising column of air, she felt the drag of the heavy wind fall away from her feet. She rocketed upward, smooth and strong, hugging the shadow of the reed line. Above, Skua Grey turned her head. Her eye, black and deep, scanned the silver water. She did not see the two brown specks tucked safely in the shade.",
+   "image": "A tiny sparrow rides a rising column of warm air up beside tall, leaning reeds; a large sea hawk below scans the water surface with a focused, cold gaze."
+  },
+  {
+   "text": "They landed in the thick reeds at the far edge of the marsh, panting, their feathers ruffled and damp. For a moment, neither of them moved. Then Nettle let out a squeak that was half laugh, half cry.\n\n\"Two winds,\" Nettle said, shaking water from her wings. \"And you didn’t fall out of the sky once.\"\n\n\"You saved me,\" Pip said. She looked at her friend, really looked at her, seeing the dust on her chin and the tremor in her legs. \"You saw the thermal.\"\n\nNettle blinked. She looked surprised, as if Pip had said something in a language she didn’t speak.\n\n\"I did,\" Nettle said softly. It was a strange feeling. She had watched the sky her whole life, reading the clouds, reading the light. But no one had ever listened. No one had ever needed what she saw. It went to her head, in the good way, making her chest feel light and warm.",
+   "image": "Two tired sparrows sit close together among tall, wet reeds, their feathers ruffled; one tiny sparrow with a crooked tail looks at a skinny freckled sparrow with a proud, surprised expression."
+  },
+  {
+   "text": "They hopped through the wet grass until the land ended. Then they stopped, because there was no more land.\n\nThe Cliffs of Calder rose before them, a great white wall of rock, sheer and vertical. At their feet, the ocean roared, a constant, thundering crash of white foam against grey stone. The air here was alive. It screamed. A fierce, warm wind blew up from the sea, rushing over the cliff tops with a sound like a giant breathing out.\n\nIt was the Cliff Wind. The last wind. The one that could throw a weak bird into the rocks and lift a wise one to the sky. Pip stared at the swirling white mist and the dark, jagged stone. It was the most beautiful thing she had ever seen. It was also the most frightening.\n\nHer wings tingled. She was ready.",
+   "image": "A tiny sparrow with a crooked tail stands at the edge of a cliff, looking at a towering white rock face and crashing ocean below; strong wind blows her feathers back."
+  }
+ ],
+ "lint": [
+  "'It wasn't X. It was Y.' pattern x2 (max 1 per chapter)"
+ ]
+}
