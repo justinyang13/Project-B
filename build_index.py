@@ -4,9 +4,21 @@ To add a book: create a folder with an index.html reader and a book.json, then r
 import html, json, pathlib
 
 ROOT = pathlib.Path(__file__).parent
+# Display order on the home page. Any book not listed here is added at the bottom (alphabetically).
+ORDER = [
+    "juno-vale-and-the-tide-that-forgot",
+    "rue-and-the-troll-under-bridgewater-bridge",
+    "pip-and-the-storm-sparrows",
+    "the-garden-at-the-edge-of-the-concrete",
+    "the-day-that-wouldnt-end",
+    "zia-and-the-runaway-space-station",
+    "fifty-one-ways-to-lose-a-soccer-game",
+    "the-mapmakers-apprentice",
+]
 books = []
 for f in sorted(ROOT.glob("*/book.json")):
     b = json.loads(f.read_text()); b["dir"] = f.parent.name; books.append(b)
+books.sort(key=lambda b: ORDER.index(b["dir"]) if b["dir"] in ORDER else len(ORDER))
 
 cards = "\n".join(f'''    <a class="card" href="{html.escape(b['dir'])}/index.html">
       <img src="{html.escape(b['dir'])}/{html.escape(b['cover'])}" alt="Cover of {html.escape(b['title'])}" loading="lazy">
@@ -25,7 +37,7 @@ page = f'''<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Project B — Illustrated Novels</title>
-<meta name="description" content="Illustrated middle-grade novels, written and drawn with local AI.">
+<meta name="description" content="A library of illustrated adventures for curious young readers. Stories about courage, kindness, patience and finding your own way.">
 <style>
 :root{{--bg:#12202c;--bg2:#1b3244;--ink:#f6efdc;--muted:#b9c3c9;--gold:#f3c76a;--card:#f8f1df;--cardink:#2b2a28}}
 *{{box-sizing:border-box}}
@@ -52,9 +64,9 @@ footer{{text-align:center;padding:0 20px 44px;color:var(--muted);font:.85rem sys
 </head>
 <body>
 <header>
-  <div class="kicker">The Library of</div>
+  <div class="kicker">The Library for All</div>
   <h1>Project B</h1>
-  <p>Illustrated novels for young readers. Every story was drafted by a local AI model, every picture was painted on the same laptop, and each book was edited and checked by Claude.</p>
+  <p>A growing shelf of illustrated adventures for curious minds. Meet a girl who befriends a troll, a sparrow who dares the biggest sky, a soccer team that learns what losing really teaches, and more. Every story carries a little courage you can take with you. Pick a book, turn the page, and find one that feels like it was written for you.</p>
 </header>
 <main>
   <section class="shelf" aria-label="Books">
