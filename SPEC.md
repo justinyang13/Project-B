@@ -92,5 +92,6 @@ Project-B/
 | 5 | Fifty-One Ways to Lose a Soccer Game | Released | v1.0 |
 | 6 | Rue and the Troll Under Bridgewater Bridge | Released | v1.0 |
 | 7 | The Garden at the Edge of the Concrete | Released | v1.0 |
+| 8 | Mo and the Mountain That Walks | Released | v1.0 |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).

@@ -14,6 +14,7 @@ ORDER = [
     "zia-and-the-runaway-space-station",
     "fifty-one-ways-to-lose-a-soccer-game",
     "the-mapmakers-apprentice",
+    "mo-and-the-mountain-that-walks",
 ]
 books = []
 for f in sorted(ROOT.glob("*/book.json")):
