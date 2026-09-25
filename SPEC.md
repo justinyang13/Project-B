@@ -89,7 +89,7 @@ Project-B/
 | 2 | Zia and the Runaway Space Station | Released | v1.0 |
 | 3 | The Mapmaker's Apprentice | Released | v1.0 |
 | 4 | Pip and the Storm-Sparrows | Released | v1.0 |
-| 5 | Fifty-One Ways to Lose a Soccer Game | Queued | — |
+| 5 | Fifty-One Ways to Lose a Soccer Game | Released | v1.0 |
 | 6 | Rue and the Troll Under Bridgewater Bridge | Queued | — |
 | 7 | The Garden at the Edge of the Concrete | Queued | — |
 
