@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+:root{
+  --desk:#2a3b4a; --paper:#fbf6ea; --ink:#2b2a28; --muted:#7a6f5d; --accent:#c8871a; --edge:#e4d9bf;
+  --shadow:rgba(0,0,0,.35); --bar:rgba(20,30,40,.88); --barink:#f4ecd8; --fs:20px;
+}
+:root[data-theme="sepia"]{ --desk:#3a2f24; --paper:#f1e2c2; --ink:#3a2c1a; --muted:#8a7454; --edge:#d9c6a0; }
+:root[data-theme="night"]{ --desk:#0d141b; --paper:#1d2630; --ink:#e6e1d3; --muted:#93a0ac; --accent:#f0b34a; --edge:#2b3846; --shadow:rgba(0,0,0,.6); }
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(ellipse at 50% 20%,color-mix(in srgb,var(--desk) 82%,#fff) 0,var(--desk) 70%);
+  color:var(--ink);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;-webkit-font-smoothing:antialiased}
+#app{min-height:100%;display:flex;flex-direction:column}
+.stage{flex:1;display:flex;justify-content:center;align-items:flex-start;padding:22px 12px 96px}
+.book{display:flex;gap:0;max-width:1180px;width:100%;justify-content:center;filter:drop-shadow(0 18px 30px var(--shadow))}
+.book.single .leaf{max-width:640px}
+.leaf{flex:1 1 0;min-width:0;max-width:590px;background:var(--paper);padding:38px clamp(22px,4.2vw,54px) 46px;position:relative;min-height:calc(100vh - 150px);
+  display:flex;flex-direction:column}
+.book.spread .leaf:first-child{border-radius:6px 0 0 6px;background:linear-gradient(to left,color-mix(in srgb,var(--paper) 88%,#000) 0,var(--paper) 7%)}
+.book.spread .leaf:last-child{border-radius:0 6px 6px 0;background:linear-gradient(to right,color-mix(in srgb,var(--paper) 88%,#000) 0,var(--paper) 7%)}
+.book.single .leaf{border-radius:6px}
+.leaf.blank{background:transparent}
+.leaf.cover{padding:0;background:#10202c;min-height:0;border-radius:6px;overflow:hidden;max-width:520px;flex:0 1 520px}
+.leaf.cover img{display:block;width:100%;height:auto}
+.pageno{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:.8rem;color:var(--muted);letter-spacing:.1em}
+.part{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);text-align:center;margin:0 0 4px}
+.chnum{font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:6px}
+h2{font-family:"Baskerville","Palatino Linotype",Georgia,serif;font-weight:700;font-size:clamp(1.5rem,3.2vw,2rem);text-align:center;margin:4px 0 16px;line-height:1.15}
+.orn{text-align:center;color:var(--accent);letter-spacing:.6em;margin:-6px 0 14px;font-size:.9rem}
+.pic{width:clamp(150px,44%,230px);aspect-ratio:1;border-radius:10px;object-fit:cover;box-shadow:0 2px 8px var(--shadow);border:4px solid #fff8;background:var(--edge)}
+.pic.f-right{float:right;margin:4px 0 10px 18px}
+.pic.f-left{float:left;margin:4px 18px 10px 0}
+.pic.center{display:block;margin:0 auto 18px;width:clamp(170px,52%,260px)}
+.txt{font-size:var(--fs);line-height:1.62;hyphens:auto;text-align:left}
+.txt p{margin:0 0 .85em;text-indent:0}
+.txt p+p{text-indent:0}
+.first p:first-child::first-letter{font-family:"Baskerville",Georgia,serif;float:left;font-size:3.6em;line-height:.82;padding:.06em .1em 0 0;color:var(--accent);font-weight:700}
+.txt::after{content:"";display:block;clear:both}
+/* chrome */
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bar);color:var(--barink);display:flex;align-items:center;gap:10px;padding:10px 14px;z-index:20;backdrop-filter:blur(6px)}
+.bar button{background:transparent;color:inherit;border:1px solid #f4ecd855;border-radius:999px;padding:8px 14px;font:600 .9rem system-ui,sans-serif;cursor:pointer;min-height:40px}
+.bar button:hover:not(:disabled){background:#f4ecd822}.bar button:disabled{opacity:.35;cursor:default}
+.bar input[type=range]{flex:1;accent-color:var(--accent);min-width:60px}
+.bar .lbl{font:.8rem system-ui,sans-serif;opacity:.85;min-width:74px;text-align:center}
+.tools{position:fixed;top:10px;right:12px;z-index:21;display:flex;gap:6px}
+.tools button{background:var(--bar);color:var(--barink);border:0;border-radius:999px;padding:8px 12px;font:600 .85rem system-ui,sans-serif;cursor:pointer;min-height:38px}
+#toc{position:fixed;inset:0;background:#000a;z-index:30;display:none;align-items:center;justify-content:center;padding:14px}
+#toc.open{display:flex}
+#toc .box{background:var(--paper);color:var(--ink);border-radius:12px;max-width:560px;width:100%;max-height:88vh;overflow:auto;padding:22px 24px}
+#toc h3{margin:0 0 10px;font-family:Baskerville,Georgia,serif;font-size:1.5rem}
+#toc a{display:flex;gap:12px;padding:9px 6px;border-bottom:1px solid var(--edge);color:inherit;text-decoration:none;cursor:pointer;align-items:baseline}
+#toc a:hover{background:var(--edge)}
+#toc .n{color:var(--accent);font-weight:700;min-width:1.7em}#toc .t{flex:1}#toc .p{color:var(--muted);font:.85rem system-ui}
+#toc .partname{margin:14px 0 2px;font:700 .72rem system-ui;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.hint{position:fixed;top:12px;left:14px;z-index:5;color:#f4ecd8aa;font:.8rem system-ui,sans-serif}
+@media (max-width:899px){.stage{padding-top:58px}.leaf{min-height:calc(100vh - 140px);padding:34px 22px 44px}.hint{display:none}.bar .lbl{min-width:58px}}
+@media print{.bar,.tools,.hint{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="hint" id="hint">← → keys or swipe to turn pages</div>
+  <div class="tools"><button id="bContents">☰ Contents</button><button id="bSize" title="Text size">A+</button><button id="bTheme" title="Paper colour">◐</button></div>
+  <div class="stage"><div class="book" id="book"></div></div>
+  <div class="bar">
+    <button id="prev">◀ Back</button>
+    <input type="range" id="slider" min="0" value="0" aria-label="Page">
+    <span class="lbl" id="lbl"></span>
+    <button id="next">Next ▶</button>
+  </div>
+  <div id="toc"><div class="box" id="tocbox"></div></div>
+</div>
+<script>
+const D = /*__DATA__*/null;
+const P = D.pages;
+const store = {get(k,d){try{return localStorage.getItem(k)??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const esc = s => s.replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = s => esc(s).replace(/\*([^*]+)\*/g,'<em>$1</em>');
+const $ = id => document.getElementById(id);
+
+// items: cover, pages..., back cover
+const items = [{t:'cover',img:'img/cover_front.jpg',alt:'Front cover'}].concat(P.map(p=>({t:'page',p})), [{t:'cover',img:'img/cover_back.jpg',alt:'Back cover'}]);
+let wide = matchMedia('(min-width:900px)').matches, spreads = [], cur = 0;
+
+function buildSpreads(){
+  spreads = [];
+  if(!wide){ items.forEach((_,i)=>spreads.push([i])); return; }
+  spreads.push([0]);
+  for(let i=1;i<items.length-1;i+=2) spreads.push(i+1<items.length-1?[i,i+1]:[i]);
+  spreads.push([items.length-1]);
+}
+function leaf(i,side){
+  const it = items[i];
+  if(it.t==='cover') return `<div class="leaf cover"><img src="${it.img}" alt="${it.alt}"></div>`;
+  const p = it.p, first = !!p.ctitle;
+  const pic = `<img class="pic ${first?'center':(p.no%2?'f-right':'f-left')}" src="${p.img}" alt="Illustration for page ${p.no}" loading="lazy">`;
+  const head = first ? `<div class="part">${esc(p.part.replace(/^PART\s+\w+:\s*/i,m=>m.replace(':',' ·')))}</div><div class="chnum">Chapter ${p.ch}</div><h2>${esc(p.ctitle)}</h2><div class="orn">❦</div>` : '';
+  return `<div class="leaf">${head}${first?pic:''}<div class="txt ${first?'first':''}">${first?'':pic}${p.paras.map(x=>`<p>${fmt(x)}</p>`).join('')}</div><div class="pageno">${p.no}</div></div>`;
+}
+function render(){
+  const s = spreads[cur], book = $('book');
+  book.className = 'book ' + (s.length===2?'spread':'single');
+  let h = s.map(i=>leaf(i)).join('');
+  if(wide && s.length===1 && items[s[0]].t==='page') h += '<div class="leaf blank"></div>';
+  book.innerHTML = h;
+  scrollTo(0,0);
+  $('slider').max = spreads.length-1; $('slider').value = cur;
+  $('prev').disabled = cur===0; $('next').disabled = cur===spreads.length-1;
+  const a = s[0], b = s[s.length-1];
+  const name = i => items[i].t==='cover' ? (i===0?'Cover':'Back cover') : items[i].p.no;
+  $('lbl').textContent = s.length===2 ? `Pages ${name(a)}–${name(b)}` : (items[a].t==='cover' ? name(a) : `Page ${name(a)}`);
+  store.set('juno.page', items[a].t==='page'?items[a].p.no:(a===0?0:P.length+1));
+}
+function go(n){ cur = Math.max(0,Math.min(spreads.length-1,n)); render(); }
+function goPage(no){ const idx = no<=0?0:Math.min(no,items.length-1); const sp = spreads.findIndex(s=>s.includes(idx)); go(sp<0?0:sp); }
+function relayout(){ const now = items[spreads[cur][0]]; const no = now.t==='page'?now.p.no:(spreads[cur][0]===0?0:P.length+1); wide = matchMedia('(min-width:900px)').matches; buildSpreads(); goPage(no); }
+
+$('prev').onclick = ()=>go(cur-1); $('next').onclick = ()=>go(cur+1);
+$('slider').oninput = e=>go(+e.target.value);
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key===' '&&!e.shiftKey&&document.activeElement.tagName!=='INPUT'){ if(e.key===' ')e.preventDefault(); go(cur+1);} else if(e.key==='ArrowLeft') go(cur-1); else if(e.key==='Escape') $('toc').classList.remove('open'); else if(e.key==='Home') go(0); else if(e.key==='End') go(spreads.length-1); });
+let tx=null; addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{ if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>70) go(cur+(dx<0?1:-1)); });
+matchMedia('(min-width:900px)').addEventListener('change',relayout);
+
+// contents
+function buildToc(){
+  let h = `<h3>${esc(D.title)}</h3>`, part='';
+  D.chapters.forEach(c=>{
+    if(c.part!==part){ part=c.part; h += `<div class="partname">${esc(part.replace(/^PART\s+\w+:\s*/i,m=>m.replace(':',' ·')))}</div>`; }
+    h += `<a data-p="${c.page}"><span class="n">${c.n}</span><span class="t">${esc(c.title)}</span><span class="p">p. ${c.page}</span></a>`;
+  });
+  $('tocbox').innerHTML = h;
+  $('tocbox').onclick = e=>{ const a=e.target.closest('a'); if(a){ goPage(+a.dataset.p); $('toc').classList.remove('open'); } };
+}
+$('bContents').onclick = ()=>$('toc').classList.add('open');
+$('toc').onclick = e=>{ if(e.target.id==='toc') $('toc').classList.remove('open'); };
+// text size + theme
+let fs = +store.get('juno.fs',20); const setFs = ()=>document.documentElement.style.setProperty('--fs',fs+'px'); setFs();
+$('bSize').onclick = ()=>{ fs = fs>=26?17:fs+3; store.set('juno.fs',fs); setFs(); };
+const themes=['light','sepia','night']; let th = store.get('juno.theme','light');
+const setTh = ()=>document.documentElement.dataset.theme = th; setTh();
+$('bTheme').onclick = ()=>{ th = themes[(themes.indexOf(th)+1)%3]; store.set('juno.theme',th); setTh(); };
+
+buildSpreads(); buildToc();
+goPage(+store.get('juno.page',0));
+</script>
+</body>
+</html>
