@@ -67,7 +67,7 @@ footer{{text-align:center;padding:0 20px 44px;color:var(--muted);font:.85rem sys
 <header>
   <div class="kicker">The Library for All</div>
   <h1>Project B</h1>
-  <p>A growing shelf of illustrated adventures for curious minds. Meet a girl who befriends a troll, a sparrow who dares the biggest sky, a soccer team that learns what losing really teaches, and more. Every story carries a little courage you can take with you. Pick a book, turn the page, and find one that feels like it was written for you.</p>
+  <p>A growing shelf of illustrated adventures for curious minds. Big hearts, wild places and small brave choices, each one only a page turn away. Every story carries a little courage you can take with you. Pick a book, turn the page, and find one that feels like it was written for you.</p>
 </header>
 <main>
   <section class="shelf" aria-label="Books">
