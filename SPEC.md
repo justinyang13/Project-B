@@ -86,7 +86,7 @@ Project-B/
 |---|---|---|---|
 | 0 | Juno Vale and the Tide That Forgot | Released | v1.0 |
 | 1 | The Day That Wouldn't End | Released | v1.0 |
-| 2 | Zia and the Runaway Space Station | Queued | — |
+| 2 | Zia and the Runaway Space Station | Released | v1.0 |
 | 3 | The Mapmaker's Apprentice | Queued | — |
 | 4 | Pip and the Storm-Sparrows | Queued | — |
 | 5 | Fifty-One Ways to Lose a Soccer Game | Queued | — |
