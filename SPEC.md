@@ -22,6 +22,7 @@ Status: **approved by the owner 2026-09-24, in progress.** This file is the plan
 
 | # | Title | Genre | Hero | Main lesson | Also touches |
 |---|---|---|---|---|---|
+| 0 | Juno Vale and the Tide That Forgot | Coastal mystery adventure | Juno, 11 | **Real courage is listening**, not being loud. The sea answers the listening. | Grief and memory; being the new kid; friendship |
 | 1 | The Day That Wouldn't End | Funny time-loop | Max, 11 | **Happiness is a choice**, not a result. Nothing will make you happy until you choose to be happy. | Appreciating family and friends |
 | 2 | Zia and the Runaway Space Station | Sci-fi adventure | Zia, 12 | **Asking for help is a strength**; teamwork | "Kids can't be engineers" |
 | 3 | The Mapmaker's Apprentice | Historical-style quest | Tam, 11 | **Be better than you were yesterday.** Growth speed matters more than where you are in life. | Perseverance; mistakes teach |
@@ -115,7 +116,7 @@ Project-B/
 | 9 | The Robot Who Was Bad at Everything | Released | v1.0 |
 | 10 | Lin and the Night Market Lanterns | Released | v1.0 |
 | 11 | Mei and the Dragon Who Feared Thunder | Released | v1.0 |
-| 12 | Haru and the Paper That Told the Truth | Planned | |
+| 12 | Haru and the Paper That Told the Truth | Released | v1.0 |
 | 13 | The River Cousins | Planned | |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
