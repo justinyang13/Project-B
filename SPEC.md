@@ -94,5 +94,6 @@ Project-B/
 | 7 | The Garden at the Edge of the Concrete | Released | v1.0 |
 | 8 | Mo and the Mountain That Walks | Released | v1.0 |
 | 9 | The Robot Who Was Bad at Everything | Released | v1.0 |
+| 10 | Lin and the Night Market Lanterns | Released | v1.0 |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
