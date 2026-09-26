@@ -4,9 +4,11 @@ Status: **approved by the owner 2026-09-24, in progress.** This file is the plan
 
 ## 1. Goal
 
-Write and publish **7 more illustrated middle-grade novels** (readers aged 10–12) after the first book, *Juno Vale and the Tide That Forgot*. Each book is read on a phone or laptop through a web reader hosted on GitHub Pages.
+**Purpose.** These books teach kids life lessons, introduce them to cultures from around the world, help them learn English, and, most importantly, help them enjoy reading and fall in love with books.
 
-**Quality bar: best-seller quality**, in story, prose and illustrations. No corners cut. Quality wins over speed if they conflict.
+**Scope.** A growing shelf of illustrated middle-grade novels (readers aged 10–12), starting with *Juno Vale and the Tide That Forgot*. Each book is read on a phone or laptop through a web reader hosted on GitHub Pages, and each one is released as soon as it is finished. Later books bring stories, characters, food, traditions and family life from different cultures; culture comes through the story itself, never through labels in titles or blurbs.
+
+**Quality bar: best-seller quality**, in story, prose and illustrations. No corners cut. Quality wins over speed if they conflict. Every book is written as a well-known children's book author would write it: consistent story line, age-appropriate content, real proofreading, vocabulary and facts a reader takes away, and pacing that never bores or rushes. The illustration and cover style stays consistent across the library.
 
 ## 2. Book format (every book)
 
@@ -27,6 +29,12 @@ Write and publish **7 more illustrated middle-grade novels** (readers aged 10–
 | 5 | Fifty-One Ways to Lose a Soccer Game | Realistic sports comedy | Dani, 12 | **Confidence comes from within.** A loss doesn't hurt your value; it only changes your strategy. | Sportsmanship |
 | 6 | Rue and the Troll Under Bridgewater Bridge | Cozy fairy-tale fantasy | Rue, 10 | **Empathy:** look past appearances; be kind to people who feel left out | Forgiveness |
 | 7 | The Garden at the Edge of the Concrete | Magic-garden adventure | Sana, 11 | **Responsibility and patience**: good things grow slowly | Speaking up |
+| 8 | Mo and the Mountain That Walks | Fantasy adventure | Mo, 11 | **Home is the people you are with**, not the place you stand on | Listening; the courage to change |
+| 9 | The Robot Who Was Bad at Everything | School sci-fi comedy | PERFECT-9 (Percy) | **Joy comes from trying**, not from being perfect | Faking a mistake is hiding |
+| 10 | Lin and the Night Market Lanterns | Family story, night market | Lin, 11 | **Honor where you come from and make it your own** | Pride, family traditions, food, festivals |
+| 11 | Mei and the Dragon Who Feared Thunder | Village fantasy | Mei, 11 | **Courage is acting while you are afraid** | Speaking up; dragon lore, rain, village life |
+| 12 | Haru and the Paper That Told the Truth | Historical story, woodblock print shop | Haru | **Truth needs courage and kindness together** | Craft, honesty, town life long ago |
+| 13 | The River Cousins | Family adventure | Two cousins | **Teamwork beats being right** | City and countryside, family, food |
 
 The owner's four core lessons, in their words, are spread across the books:
 1. *Happiness is a choice, not a result.*
@@ -67,6 +75,12 @@ Lessons are **dramatized through the hero's choices**, never preached by the nar
 - [ ] Timeline, names, looks and facts are consistent (checked against the bible).
 - [ ] Every illustration matches its page, characters look the same throughout, no drawn text or anatomy glitches.
 - [ ] Reader opens on desktop and phone width with no console errors; covers look professional.
+- [ ] Proofread end to end by Claude: tense, spelling, British/American mix, invented or misused foreign words.
+- [ ] Age-appropriate (ages 10–12) and consistent with the story bible.
+- [ ] Learning value: target vocabulary used in context, and facts or customs a reader takes away.
+- [ ] Engagement and pacing: no slow stretches, no rushed ones.
+- [ ] Culture books only: cultural facts web-checked, respectful and accurate character looks, no culture label in title, cover or blurb.
+- [ ] Illustration and cover style matches the rest of the library.
 
 ## 7. Repo layout
 
@@ -95,5 +109,8 @@ Project-B/
 | 8 | Mo and the Mountain That Walks | Released | v1.0 |
 | 9 | The Robot Who Was Bad at Everything | Released | v1.0 |
 | 10 | Lin and the Night Market Lanterns | Released | v1.0 |
+| 11 | Mei and the Dragon Who Feared Thunder | In production | |
+| 12 | Haru and the Paper That Told the Truth | Planned | |
+| 13 | The River Cousins | Planned | |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
