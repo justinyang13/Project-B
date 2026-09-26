@@ -109,7 +109,7 @@ Project-B/
 | 8 | Mo and the Mountain That Walks | Released | v1.0 |
 | 9 | The Robot Who Was Bad at Everything | Released | v1.0 |
 | 10 | Lin and the Night Market Lanterns | Released | v1.0 |
-| 11 | Mei and the Dragon Who Feared Thunder | In production | |
+| 11 | Mei and the Dragon Who Feared Thunder | Released | v1.0 |
 | 12 | Haru and the Paper That Told the Truth | Planned | |
 | 13 | The River Cousins | Planned | |
 
