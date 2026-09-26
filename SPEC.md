@@ -117,6 +117,6 @@ Project-B/
 | 10 | Lin and the Night Market Lanterns | Released | v1.0 |
 | 11 | Mei and the Dragon Who Feared Thunder | Released | v1.0 |
 | 12 | Haru and the Paper That Told the Truth | Released | v1.0 |
-| 13 | The River Cousins | Planned | |
+| 13 | The River Cousins | Released | v1.0 |
 
 Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
