@@ -7,17 +7,17 @@ ROOT = pathlib.Path(__file__).parent
 # Display order on the home page. Any book not listed here is added at the bottom (alphabetically).
 ORDER = [
     "juno-vale-and-the-tide-that-forgot",
-    "pip-and-the-storm-sparrows",
+    "mei-and-the-dragon-who-feared-thunder",
+    "mo-and-the-mountain-that-walks",
     "rue-and-the-troll-under-bridgewater-bridge",
     "the-day-that-wouldnt-end",
     "the-garden-at-the-edge-of-the-concrete",
-    "mo-and-the-mountain-that-walks",
+    "pip-and-the-storm-sparrows",
     "zia-and-the-runaway-space-station",
+    "lin-and-the-night-market-lanterns",
     "fifty-one-ways-to-lose-a-soccer-game",
     "the-mapmakers-apprentice",
     "robot-who-was-bad-at-everything",
-    "lin-and-the-night-market-lanterns",
-    "mei-and-the-dragon-who-feared-thunder",
 ]
 books = []
 for f in sorted(ROOT.glob("*/book.json")):
