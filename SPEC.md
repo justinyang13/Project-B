@@ -36,6 +36,7 @@ Status: **approved by the owner 2026-09-24, in progress.** This file is the plan
 | 11 | Mei and the Dragon Who Feared Thunder | Village fantasy | Mei, 11 | **Courage is acting while you are afraid** | Speaking up; dragon lore, rain, village life |
 | 12 | Haru and the Paper That Told the Truth | Historical story, woodblock print shop | Haru | **Truth needs courage and kindness together** | Craft, honesty, town life long ago |
 | 13 | The River Cousins | Family adventure | Two cousins | **Teamwork beats being right** | City and countryside, family, food |
+| 14 | Wren and the Library at the Bottom of the Sea | Cozy sea fantasy | Wren, 10 | **Reading is not a race:** slow readers read deepest, and reading aloud together saves libraries | Dyslexia-like struggles, honesty, community |
 
 The owner's four core lessons, in their words, are spread across the books:
 1. *Happiness is a choice, not a result.*
@@ -118,5 +119,6 @@ Project-B/
 | 11 | Mei and the Dragon Who Feared Thunder | Released | v1.0 |
 | 12 | Haru and the Paper That Told the Truth | Released | v1.0 |
 | 13 | The River Cousins | Released | v1.0 |
+| 14 | Wren and the Library at the Bottom of the Sea | Released | v1.0 |
 
-Working notes and per-book source live outside the repo in `/Users/justin/Code/Maxi/factory/` (see its `STATE.md`).
+Working notes and per-book source live outside the repo in `/Users/Maxi/Code/Maxi/factory/` (see its `STATE.md`).
