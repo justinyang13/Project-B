@@ -23,6 +23,7 @@ Open `index.html` (or the GitHub Pages site) to browse the library.
 | **Haru and the Paper That Told the Truth** | Historical adventure | 10–12 | 100 | [`haru-and-the-paper-that-told-the-truth/`](haru-and-the-paper-that-told-the-truth/index.html) |
 | **The River Cousins** | Summer adventure | 10–12 | 100 | [`the-river-cousins/`](the-river-cousins/index.html) |
 | **Wren and the Library at the Bottom of the Sea** | Cozy sea fantasy | 10–12 | 100 | [`wren-and-the-library-at-the-bottom-of-the-sea/`](wren-and-the-library-at-the-bottom-of-the-sea/index.html) |
+| **The Wizard School Dropout Club** | Comedy fantasy | 10–12 | 100 | [`the-wizard-school-dropout-club/`](the-wizard-school-dropout-club/index.html) |
 
 ## Layout
 

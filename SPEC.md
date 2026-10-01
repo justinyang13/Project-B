@@ -37,6 +37,7 @@ Status: **approved by the owner 2026-09-24, in progress.** This file is the plan
 | 12 | Haru and the Paper That Told the Truth | Historical story, woodblock print shop | Haru | **Truth needs courage and kindness together** | Craft, honesty, town life long ago |
 | 13 | The River Cousins | Family adventure | Two cousins | **Teamwork beats being right** | City and countryside, family, food |
 | 14 | Wren and the Library at the Bottom of the Sea | Cozy sea fantasy | Wren, 10 | **Reading is not a race:** slow readers read deepest, and reading aloud together saves libraries | Dyslexia-like struggles, honesty, community |
+| 15 | The Wizard School Dropout Club | Comedy fantasy, photorealistic art | Marnie, 11 | **What others call your flaw may be your tool**; confidence comes from within, you do not need to be normal to belong | Friendship, finding your people, never being told you can't |
 
 The owner's four core lessons, in their words, are spread across the books:
 1. *Happiness is a choice, not a result.*
@@ -120,5 +121,6 @@ Project-B/
 | 12 | Haru and the Paper That Told the Truth | Released | v1.0 |
 | 13 | The River Cousins | Released | v1.0 |
 | 14 | Wren and the Library at the Bottom of the Sea | Released | v1.0 |
+| 15 | The Wizard School Dropout Club | Released | v1.0 |
 
 Production tooling and working notes live in `factory/` inside this repo (see its `STATE.md`); its work data (`books/`, `dist/`, `tools/`, `logs/`) is git-ignored.
