@@ -1,17 +1,27 @@
-# Project B wish list (user's ideas; not started until the user says go)
+# Project B wish list and to-do (updated 2026-10-01)
 
-**UPDATE 2026-09-25: item 1 is now ACTIVE** as books 11-14 (Taiwanese, Chinese, Japanese, Korean), after the Robot book. Plan in STATE.md 'REVISED EXPANSION'. Item 2 still not started.
+Book numbers follow SPEC.md (numbered from 0): Wren = #14, The Wizard School Dropout Club = #15 (16 books live in total).
 
-Added 2026-09-25.
+## Wish list (the user's ideas; nothing here starts until the user says go)
 
-1. **More Asian-related children's books.** Asian characters and stories rooted in Taiwanese, Chinese, Japanese and Korean cultures: traditions, festivals, food, family life, folktales. Same quality bar and workflow as the current books (see memory book-quality-standards.md). Needs care: accurate, respectful detail (consider a cultural-accuracy check per book), vocabulary/learning value (a few native words used naturally), keep current image style.
-2. **Reader tracking with a simple username.** Track what each reader has read (e.g. per-book progress) using just a username, backed by a SQLite server on this Mac.
-   - Design note to settle before building: the site is static on GitHub Pages, so phones can't reach a server on this Mac unless it is exposed (tunnel such as Cloudflare Tunnel/Tailscale) or hosted elsewhere. Also decide privacy: no real names/emails, kids' data, username-only, no passwords.
+| # | Idea | Status | Notes / what is needed first |
+|---|---|---|---|
+| 1 | More Asian-culture children's books (Taiwanese, Chinese, Japanese, Korean) | **DONE** | Lin (Taiwan), Mei (China), Haru (Japan), The River Cousins (Korea), all live |
+| 2 | Reader tracking with a simple username (per-book progress) | not started | Site is static on GitHub Pages, so phones cannot reach a server on this Mac: needs a tunnel (Cloudflare Tunnel/Tailscale) or other hosting. Privacy: username only, no real names/emails/passwords, kids' data |
+| 3 | Higher age-level books (high school) | not started | Decide: age band, "serious but appropriate" content rules, tone and reading level, separate shelf/section, image style for older readers |
+| 4 | Book stats tags on every book (and in book.json) | not started | Decide which stats: pages/chapters, word count, reading time, reading level, genre, main lesson, themes, vocabulary words, culture |
+| 5 | Author and publisher names on the books | not started | Need from the user: the author name, the publisher name, and where they appear (cover, title page, book pages, site footer, book.json) |
 
-## Added 2026-09-25 (later)
+## Project B to-do
 
-3. **Higher age-level books (high school).** Books for teens with more serious topics appropriate for their age and different, relatable life lessons. Needs its own decisions before starting: age band, content guidelines (what "serious but appropriate" means), tone and reading level, separate shelf or section on the site, and an image style suited to older readers.
-4. **Tag each book with book stats.** Show stats on every book (and in book.json), e.g. page and chapter count, word count, reading time, reading level/age band, genre, main lesson, themes, vocabulary words, culture. Which stats to show is to be decided with the user before building.
-5. **Add Author and Publisher (publication company) names** to the books. Needs from the user: the author name and the publishing-company name to use, and where they appear (cover, title page, book pages, site footer, book.json).
+**Done recently (2026-09-30 to 10-01):** Wren (#14) and The Wizard School Dropout Club (#15, photorealistic art) released and live; factory moved into `Project-B/factory/`; `draw-things-cli` pinned to v26.0910.1; Project B memory removed from the jCore backup.
 
-Status of all wish-list items: not started, except item 1 (Asian-culture books, active as books 11-14).
+**Open:**
+- [ ] Pick the next book (unused ideas: polite dragon, unlucky fairy godmother, Library That Lent Out Weather, others). Do not start until the user confirms.
+- [ ] Look at the ~1,800 files git shows as modified in the repo (unexplained; images, covers, book.json, README, SPEC). Decide: real changes, or noise to discard.
+- [ ] Shelf order: Wren and Dropout Club were appended at the end of the home page; confirm where they belong in `build_index.py` ORDER.
+- [ ] Optional: re-roll Dropout Club pages 68 and 79 (a hat shows up on the goose).
+- [ ] Optional: cut a library release tag (library-v1.5) now that two books were added (last was library-v1.4 at 14 books).
+- [ ] Back up the Project B memory notes somewhere private (they now exist only in `~/.claude/projects/-Users-Maxi-Code-Project-B/memory/`).
+- [ ] The downloaded `qwen_image_2.1_q8p` model is unused; try it on a future book if useful, or leave it.
+- [ ] Re-test `draw-things-cli` when a newer release than v26.0928.0 appears (the Metal shader crash on macOS 27); only then unpin.
