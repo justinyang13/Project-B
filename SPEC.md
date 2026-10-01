@@ -121,4 +121,4 @@ Project-B/
 | 13 | The River Cousins | Released | v1.0 |
 | 14 | Wren and the Library at the Bottom of the Sea | Released | v1.0 |
 
-Working notes and per-book source live outside the repo in `/Users/Maxi/Code/Maxi/factory/` (see its `STATE.md`).
+Production tooling and working notes live in `factory/` inside this repo (see its `STATE.md`); its work data (`books/`, `dist/`, `tools/`, `logs/`) is git-ignored.

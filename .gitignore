@@ -1,2 +1,13 @@
 .DS_Store
 ._*
+
+# factory: work data stays local (scripts and docs are tracked)
+factory/books/
+factory/dist/
+factory/tools/
+factory/legacy/
+factory/logs/
+factory/queue.txt
+factory/__pycache__/
+factory/lib/__pycache__/
+__pycache__/
