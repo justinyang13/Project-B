@@ -218,3 +218,10 @@ Note: no culture label issue; watch for stray lanterns (style prefix says amber 
 - H8 Seven Hundred Words for Rain prepped (all + ch01); covers frontA+backA composed. Not yet run.
 - H9 Thirteen Minutes of Thunder prepped (all + ch01); covers frontA+backA composed. Not yet run.
 - H10 The Lighthouse Debate Society prepped (all + ch01); covers frontB3+backA composed. Not yet run. ALL 10 PREPPED.
+- 2026-10-09 7:57AM USER: pause after the first High School book (Atlas). hs_chain.sh stopped; books 2-10 stay prepped but NOT started until the user says go.
+
+## 2026-10-09 H1 The Atlas of Unmade Land RELEASED (v1.0) - Claude QC log
+- Read all 25 chapters (50.7k words) and viewed all 125 page images + final covers. Text fixes via factory/patches/the-atlas-of-unmade-land.py (apply.py): continuity (Hester 44 years ago, matching Vasht age 63 and 19 at the time), wrong names (Mrs. Gable/Wynne, Sergeant Major/Ledger, Broadway), engineering sanity (hot chain adds length, 1:1500 race gradient, third-angle numbers, 4,321 vs 4,231 error = 60 ft, closure 1 in 50,000), anachronisms (bug, tire, heat death), loose ends.
+- Images: rerolled p12, p16, p74 (extra girl / headless figure / domes). Lesson: the Vasht descriptor flagged True fires on page text and put his hat on Isla; set to False and name him in IMAGE lines.
+- Lessons: Qwen at 400-word pages writes decent prose but reuses "like a stone", "the weight of" and invents wrong numbers; always sanity-check the engineering numbers; a style_prefix word like "domes" gives onion domes.
+- Pipeline time: ~3h for text, parallel images ~1h; 9 min/chapter. Remaining books 2-10 prepped (bible/outline/config/style/meta/ch01/covers) and PAUSED by the user.
