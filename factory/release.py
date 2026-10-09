@@ -11,7 +11,10 @@ shutil.copytree(B / "book", D, dirs_exist_ok=True)
 for n in ("front", "back"): shutil.copy(B / "images" / f"cover_{n}_final.png", D / f"cover_{n}.png")
 shutil.copy(B / "bible.md", D / "source"); shutil.copy(B / "outline.md", D / "source")
 shutil.copytree(B / "chapters", D / "source" / "chapters")
-book = dict(title=M["title"], subtitle=M["subtitle"], cover="img/cover_front.jpg", ages=M["ages"], pages=100, chapters=20, genre=M["genre"], blurb=M["blurb"])
+chs = sorted((B / "chapters").glob("ch*.json"))
+book = dict(title=M["title"], subtitle=M["subtitle"], cover="img/cover_front.jpg", ages=M["ages"], pages=sum(len(load_json(c)["pages"]) for c in chs), chapters=len(chs), genre=M["genre"], blurb=M["blurb"])
+for k in ("author", "publisher", "shelf"):
+    if M.get(k): book[k] = M[k]
 (D / "book.json").write_text(json.dumps(book, indent=1, ensure_ascii=False))
 subprocess.run([sys.executable, str(REPO / "build_index.py")], check=True)
 (FACTORY / "dist").mkdir(exist_ok=True); zp = FACTORY / "dist" / f"{slug}.zip"

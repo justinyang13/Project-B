@@ -23,7 +23,7 @@ html,body{{margin:0;width:1024px;height:1536px;overflow:hidden}}
 .b{{position:absolute;bottom:46px;left:0;right:0;font:700 27px/1.2 {font};letter-spacing:.16em;text-transform:uppercase;text-shadow:0 2px 10px #000}}
 .b small{{display:block;font-size:22px;letter-spacing:.35em;color:{tx};margin-top:10px}}
 </style></head><body><div class="c"><div class="t"><div class="kick">{E(C['kicker'])}</div><div class="name">{lines}</div><div class="sub">{E(C.get('subtitle',''))}</div></div>
-<div class="b">{E(C['tagline'])}<small>A novel for ages 10–12</small></div></div></body></html>'''
+<div class="b">{E(C['tagline'])}<small>{E(C.get('front_foot', 'A novel for ages 10–12'))}</small></div></div></body></html>'''
 paras = "".join(f"<p>{E(p)}</p>" for p in C["blurb"])
 back = f'''<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;width:1024px;height:1536px;overflow:hidden}}

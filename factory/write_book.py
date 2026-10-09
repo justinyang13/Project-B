@@ -19,6 +19,12 @@ MODEL = flag("--model", CFG.get("model", "qwen3.8:27b"))
 OUTDIR = B / flag("--out", "chapters"); OUTDIR.mkdir(exist_ok=True)
 TMP = B / "tmp"; TMP.mkdir(exist_ok=True)
 MINW, MAXW = CFG.get("min_words", 170), CFG.get("max_words", 320)
+AUD = CFG.get("audience", "middle-grade readers aged 10 to 12")
+WORLD = CFG.get("audience_world", "an 11-year-old's world (cereal, school, video games, siblings)")
+TARGET = CFG.get("target_words", "150-200"); HARD = CFG.get("hard_words", 240)
+SHORT_LO, SHORT_HI = CFG.get("short_lo", 0.12), CFG.get("short_hi", 0.40)
+LONG_S = CFG.get("long_sentence", 50); SIM_MAX = CFG.get("sim_max", 2)
+EXTRA_CRAFT = CFG.get("extra_craft", "")
 EDIT = "--no-edit" not in flags
 N = len(OUTLINE)
 EXEMPLAR = ""
@@ -26,7 +32,7 @@ _ex = B / "src" / "ch01.txt"
 if _ex.exists():
     EXEMPLAR = "\n\nGOLD-STANDARD EXAMPLE: chapter 1, finished by the senior editor. Match its voice, humor, specificity, rhythm, paragraphing and dialogue style exactly (do not copy its events):\n<example>\n" + _ex.read_text() + "\n</example>\n"
 
-SYSTEM = f"""You are an award-winning, best-selling middle-grade novelist writing for readers aged 10 to 12.
+SYSTEM = f"""You are an award-winning, best-selling novelist writing for {AUD}.
 You are writing the novel described in this bible. Follow it faithfully: names, looks, voice, rules.
 
 {BIBLE}
@@ -39,8 +45,9 @@ CRAFT RULES (apply to every page):
 - Vary rhythm. Mix short sentences with long, flowing, comic ones. NEVER string together three or more short declarative sentences in a row, and never start three sentences in a row with the same word (no 'It was. It was. It was.' or 'I looked. I looked.'). Combine them, add a clause, cut some.
 - Humor comes from character and specifics, not from the narrator announcing something is funny.
 - Do not use em dashes. Use commas, periods, or parentheses.
-- At most two comparisons (like / as if) per page, each fresh and specific to an 11-year-old's world. Otherwise use plain, exact description. No sentence longer than 40 words.
+- At most two comparisons (like / as if) per page, each fresh and specific to {WORLD}. Otherwise use plain, exact description. No sentence longer than 40 words.
 - The book's life lesson must be DRAMATIZED through choices and consequences, never stated by the narrator as a moral.
+{EXTRA_CRAFT}
 {EXEMPLAR}"""
 
 def synopsis(c): return f"Ch{c['n']} \"{c['title']}\": {c['synopsis']}"
@@ -62,7 +69,7 @@ These happen in LATER chapters. Do NOT include, name, or hint at them here:
 {later or '(none)'}
 
 Requirements:
-- Exactly 5 book pages, each about 150-200 words (hard limit 240) of polished story prose that dramatizes its beat as a scene with dialogue and concrete detail. Do not summarize.
+- Exactly 5 book pages, each about {TARGET} words (hard limit {HARD}) of polished story prose that dramatizes its beat as a scene with dialogue and concrete detail. Do not summarize.
 - Every page ends on a hook, a laugh or a feeling; the chapter's last page ends stronger.
 - Do not write the chapter heading; start straight into the story. No markdown or bold.
 - After each page add one line beginning "IMAGE:" with a 25-40 word prompt for a small spot illustration of the most visual moment on that page: a single clear scene in plain visual language (subject, setting, action, mood), restating main characters' looks per the bible. No text, letters, signs or writing in the picture.
@@ -113,7 +120,7 @@ EDITOR'S CHECKLIST:
 - Sharpen the dialogue: shorter lines, real interruptions, each speaker clearly different.
 - Cut anything a narrator explains that a reader can feel. Trim adverbs. Fix flabby openings.
 - Make the jokes land with precise details. Make every page-ending line stronger.
-- Each page must be about 150-200 words (never above 240): CUT ruthlessly, keep only the best details. No em dashes. No markdown.
+- Each page must be about {TARGET} words (never above {HARD}): keep only the best details. No em dashes. No markdown.
 - Keep the exact same output format: === PAGE n === / prose / IMAGE: line, for all 5 pages. Output only the chapter."""
 
 def sentences(t): return [x for x in re.split(r"(?<=[.!?])\s+", t) if x.strip()]
@@ -125,18 +132,18 @@ def page_issues(text, used):
     f = [x for x in f if not x.startswith(("staccato", "too many very short"))]
     if starter_runs(narr) > 1: f.append("several runs of 3+ sentences start with the same word; reword them")
     sh = short_share(narr)
-    if sh > 0.40: f.append(f"{sh:.0%} of the narration sentences are 5 words or fewer; join some into medium sentences (aim 20-35%)")
-    if sh < 0.12: f.append("no short punchy sentences; add a few very short ones for rhythm and comic timing (aim 20-35%)")
-    long_s = [x for x in sentences(narr) if len(x.split()) > 50]
+    if sh > SHORT_HI: f.append(f"{sh:.0%} of the narration sentences are 5 words or fewer; join some into medium sentences (aim 20-35%)")
+    if sh < SHORT_LO: f.append("no short punchy sentences; add a few very short ones for rhythm and comic timing (aim 20-35%)")
+    long_s = [x for x in sentences(narr) if len(x.split()) > LONG_S]
     if long_s: f.append(f"a sentence is {len(long_s[0].split())} words long; split it (no sentence over 45 words): '{long_s[0][:60]}...'")
     if CFG.get("present_tense"):
         past = len(re.findall(r"\b(I|we|she|he|they) (was|were|had|looked|walked|felt|saw|said|took|went|stood|sat|knew|thought|heard|turned|watched|ran|opened|held|pointed|nodded|smiled|asked|grabbed|stepped|kicked|laughed|shrugged)\b", narr))
         if past > 1: f.append(f"the narration slipped into PAST tense ({past} past-tense verbs); this book is FIRST PERSON PRESENT TENSE: rewrite every past-tense narration verb in the present ('I look', 'she says')")
     sims = SIMILE.findall(text)
-    if len(sims) > 2: f.append(f"{len(sims)} comparisons on one page (like/as if...); keep only the best two and turn the rest into plain concrete description")
+    if len(sims) > SIM_MAX: f.append(f"{len(sims)} comparisons on one page (like/as if...); keep only the best {SIM_MAX} and turn the rest into plain concrete description")
     w = wc(text)
-    if w > MAXW: f.append(f"too long ({w} words); cut to about 200 words")
-    if w < MINW: f.append(f"too short ({w} words); expand to about 170 words with concrete detail")
+    if w > MAXW: f.append(f"too long ({w} words); cut to about {TARGET} words")
+    if w < MINW: f.append(f"too short ({w} words); expand to about {TARGET} words with concrete detail")
     return f
 
 def polish_page(n, i, pages, used):
@@ -156,7 +163,7 @@ THE PAGE TO REWRITE:
 PROBLEMS TO FIX:
 """ + "\n".join(f"- {x}" for x in best_i) + f"""
 
-How: fix ONLY the listed problems, changing as little else as possible. Never stack comparisons: at most two per page, each fresh and specific to an 11-year-old's world (cereal, school, video games, siblings), otherwise plain concrete description. Keep sentences clear (most under 30 words), with a natural mix of short and medium ones. Keep the dialogue lively. Target about 200 words (never over 250). No em dashes. Keep the voice of the gold-standard example. Output ONLY the rewritten page text: no heading, no notes, no IMAGE line."""
+How: fix ONLY the listed problems, changing as little else as possible. Never stack comparisons: at most {SIM_MAX} per page, each fresh and specific to {WORLD}, otherwise plain concrete description. Keep sentences clear (most under 30 words), with a natural mix of short and medium ones. Keep the dialogue lively. Target about {TARGET} words (never over {HARD}). No em dashes. Keep the voice of the gold-standard example. Output ONLY the rewritten page text: no heading, no notes, no IMAGE line."""
         new = ollama(MODEL, SYSTEM, pr, temperature=0.8, num_predict=900).strip()
         new = re.sub(r"^=== PAGE \d+ ===\s*", "", new); new = re.split(r"\nIMAGE:", new)[0].strip()
         ni = page_issues(new, used)

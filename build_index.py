@@ -26,16 +26,28 @@ for f in sorted(ROOT.glob("*/book.json")):
     b = json.loads(f.read_text()); b["dir"] = f.parent.name; books.append(b)
 books.sort(key=lambda b: ORDER.index(b["dir"]) if b["dir"] in ORDER else len(ORDER))
 
-cards = "\n".join(f'''    <a class="card" href="{html.escape(b['dir'])}/index.html">
+def card(b):
+    ages = f"Ages {html.escape(b['ages'])} · " if b.get("shelf") != "High School" else ""
+    by = f" · by {html.escape(b['author'])}" if b.get("author") else ""
+    return f'''    <a class="card" href="{html.escape(b['dir'])}/index.html">
       <img src="{html.escape(b['dir'])}/{html.escape(b['cover'])}" alt="Cover of {html.escape(b['title'])}" loading="lazy">
       <div class="info">
         <h2>{html.escape(b['title'])}</h2>
         <p class="sub">{html.escape(b['subtitle'])}</p>
-        <p class="meta">Ages {html.escape(b['ages'])} · {b['pages']} pages · {b['chapters']} chapters</p>
+        <p class="meta">{ages}{b['pages']} pages · {b['chapters']} chapters{by}</p>
         <p class="blurb">{html.escape(b['blurb'])}</p>
         <span class="read">Read the book →</span>
       </div>
-    </a>''' for b in books)
+    </a>'''
+main_books = [b for b in books if b.get("shelf") != "High School"]
+hs_books = [b for b in books if b.get("shelf") == "High School"]
+cards = "\n".join(card(b) for b in main_books)
+hs_section = ""
+if hs_books:
+    hs_section = '''
+  <h2 class="shelfname" id="high-school">High School</h2>
+  <section class="shelf" aria-label="High School books">
+''' + "\n".join(card(b) for b in hs_books) + "\n  </section>"
 
 page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -63,6 +75,7 @@ h2{{font-family:Baskerville,Georgia,serif;font-size:1.45rem;line-height:1.15;mar
 .meta{{margin:.7em 0 0;font:600 .78rem system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8a7b5b}}
 .blurb{{font-size:.98rem;line-height:1.5;margin:.7em 0 1em}}
 .read{{margin-top:auto;font:700 .95rem system-ui,sans-serif;color:#a8650b}}
+.shelfname{{font-family:Baskerville,Georgia,serif;font-size:2rem;color:var(--gold);margin:64px 0 20px;text-align:center}}
 .soon{{border:2px dashed #ffffff33;border-radius:14px;display:flex;align-items:center;justify-content:center;min-height:200px;color:var(--muted);font-style:italic}}
 footer{{text-align:center;padding:0 20px 44px;color:var(--muted);font:.85rem system-ui,sans-serif}}
 @media (max-width:520px){{.card{{flex-direction:column}}.card img{{width:60%;max-width:none;align-self:center}}}}
@@ -78,7 +91,7 @@ footer{{text-align:center;padding:0 20px 44px;color:var(--muted);font:.85rem sys
   <section class="shelf" aria-label="Books">
 {cards}
     <div class="soon">More books coming soon…</div>
-  </section>
+  </section>{hs_section}
 </main>
 <footer>Open a book, then use ← → keys or swipe to turn the pages.</footer>
 </body>

@@ -18,12 +18,13 @@ for f in sorted((B / "chapters").glob("ch*.json")):
     chapters.append(dict(n=ch["n"], title=ch["title"], part=ch["part"], page=n + 1))
     for i, p in enumerate(ch["pages"]):
         n += 1
+        words = ch.get("words") if i == len(ch["pages"]) - 1 else None
         small(B / "images" / f"p{n:03d}.png", OUT / "img" / f"p{n:03d}.jpg", 640)
         pages.append(dict(no=n, ch=ch["n"], ctitle=ch["title"] if i == 0 else "", part=ch["part"] if i == 0 else "",
-                          paras=[" ".join(x.split()) for x in p["text"].split("\n\n") if x.strip()], img=f"img/p{n:03d}.jpg"))
+                          paras=[" ".join(x.split()) for x in p["text"].split("\n\n") if x.strip()] + (["\u25c6 Words to know: " + "; ".join(f"{w} \u2013 {d}" for w, d in words)] if words else []), img=f"img/p{n:03d}.jpg"))
 for name in ("front", "back"):
     small(B / "images" / f"cover_{name}_final.png", OUT / "img" / f"cover_{name}.jpg", 1400)
-data = json.dumps(dict(title=M["title"], sub=M["subtitle"], pages=pages, chapters=chapters), ensure_ascii=False)
+data = json.dumps(dict(title=M["title"], sub=M["subtitle"], author=M.get("author", ""), publisher=M.get("publisher", ""), pages=pages, chapters=chapters), ensure_ascii=False)
 tpl = (FACTORY / "reader_template.html").read_text()
 (OUT / "index.html").write_text(tpl.replace("/*__DATA__*/null", data).replace("__TITLE__", html.escape(M["title"])))
 print(f"built {len(pages)} pages, {len(chapters)} chapters -> {OUT/'index.html'}")

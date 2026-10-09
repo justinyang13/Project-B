@@ -203,3 +203,18 @@ Note: no culture label issue; watch for stray lanterns (style prefix says amber 
 - Text QC lessons: Qwen made handbook rule numbers conflict with chapter headers, a hex test that contradicted the hex rule, wrong pronouns for a recurring minor character (Mayor), wand/notebook continuity slips, wrong location (Dimblewick vs Humbleton). Read it all.
 - Time: machine run ~1.5 h overnight; QC, 4 reroll rounds and release ~2 h.
 - NEXT: ask the user before starting any new book (user rule). queue.txt should stay empty/this book only.
+
+## 2026-10-09 HIGH SCHOOL BATCH STARTED (5:11AM; user approved 10 books, no pauses, release each as soon as it passes Claude's own QC)
+- Started once the GPU was free (another session had the Library That Lent Out Weather renders + a Gillian beach-film LTX job; that Library book is still in queue.txt, unfinished: DO NOT run queue.sh, run `run_book.sh <slug>` directly for HS books).
+- User decisions: 10 books, order H1..H10 (see SPEC section 9), SAT-level vocabulary, engineering at the center, light clean romance OK, layered meaningful cover art, author "Yang" / publisher "Yang Ink", NO age range on front cover, separate High School shelf, Claude is the quality check, never wait.
+- Factory changes: write_book.py reads config (audience, target_words, hard_words, short_lo/hi, long_sentence, sim_max, extra_craft); vocab.py (words to know); build_html appends words; release.py/book.json author+publisher+shelf; make_covers cover.front_foot; build_index High School section; run_book/run_images count chapters from outline.
+- H1 renamed "The Atlas of Unmade Land" (the kids' book The Mapmaker's Apprentice already exists).
+- H2 Orbit of the Last Orchard prepped (bible/outline/config/style/meta/ch01); covers chosen: frontA2 + backA (composed). Not yet run.
+- H3 Clockwork Summer prepped (bible/outline/config/style/meta/ch01), covers chosen frontA+backA composed. Not yet run.
+- H4 The Tidewright's Daughter prepped (all files + ch01); covers frontB2+backA composed. Not yet run.
+- H5 The Understudy Heir prepped (all + ch01); covers frontA3+backA composed. Not yet run.
+- H6 The Archivist of Small Mercies prepped (all + ch01); covers frontB+backA composed. Not yet run.
+- H7 The Quiet Heist of Castle Verrow prepped (all + ch01); covers frontA+backA composed. Not yet run.
+- H8 Seven Hundred Words for Rain prepped (all + ch01); covers frontA+backA composed. Not yet run.
+- H9 Thirteen Minutes of Thunder prepped (all + ch01); covers frontA+backA composed. Not yet run.
+- H10 The Lighthouse Debate Society prepped (all + ch01); covers frontB3+backA composed. Not yet run. ALL 10 PREPPED.

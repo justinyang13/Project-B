@@ -124,3 +124,36 @@ Project-B/
 | 15 | The Wizard School Dropout Club | Released | v1.0 |
 
 Production tooling and working notes live in `factory/` inside this repo (see its `STATE.md`); its work data (`books/`, `dist/`, `tools/`, `logs/`) is git-ignored.
+
+## 9. High School shelf (approved 2026-10-09)
+
+### BRD
+- **Goal:** ten illustrated novels for readers aged 14–18, on their own "High School" shelf on the home page, in as many genres as possible (fantasy is the favorite), each inspiring and each with **engineering excellence** (real mechanics, measurement, systems design, shown accurately) at the heart of the plot. Light, clean romance is allowed. **Nothing scary.**
+- **Brand:** author "Yang", publisher "Yang Ink". The age range is never printed on a front cover.
+- **Quality bar:** the same best-seller bar as section 1, with a harder reading level. Claude personally checks every cover, illustration, text and consistency before a book is released.
+- **Out of scope:** horror, gore, sexual content, preaching.
+
+### FRD
+- 25 chapters x 5 pages, 380-460 words per page (about 2,000 words per chapter, about 50,000 words per book), one illustration per page, plus front and back covers.
+- **SAT-level vocabulary** in context (grade 11-12 words, irony, longer sentences) and a **"Words to know"** list of 5 words with plain definitions at the end of every chapter.
+- Teen heroes (14-18) with inner conflict, mixed motives and moral gray areas; adults are people, not sages.
+- Art: painterly cinematic realism, **not cartoonish** (Flux Klein 9B). Covers have a **layered design**: a hidden story meaning inside the scene, several candidates per cover, the best one chosen at full size.
+- The home page shows these books under a separate "High School" heading; the card shows no age range; the book shows "Yang" and "Yang Ink".
+- Release per book as soon as it passes Claude's check.
+
+### TRD
+- Same factory as the other books (`factory/`), configured per book in `config.json` (`audience`, `target_words`, `hard_words`, `short_lo/hi`, `long_sentence`, `sim_max`, `extra_craft`), `style.json` (`model`: `flux_2_klein_9b_i8x.ckpt`), and `meta.json` (`author`, `publisher`, `shelf: "High School"`, `cover.front_foot`).
+- `vocab.py` adds the "Words to know" lists; `build_html.py` appends them to each chapter's last page; `release.py` writes `author`/`publisher`/`shelf` into `book.json`; `build_index.py` groups `shelf: "High School"` books under their own heading.
+
+| # | Book | Genre | Status |
+|---|---|---|---|
+| H1 | The Atlas of Unmade Land | Epic fantasy, surveying | in production |
+| H2 | Orbit of the Last Orchard | Hopeful sci-fi | planned |
+| H3 | Clockwork Summer | Steampunk adventure | planned |
+| H4 | The Tidewright's Daughter | Sea fantasy, tidal engineering | planned |
+| H5 | The Understudy Heir | Court intrigue | planned |
+| H6 | The Archivist of Small Mercies | Historical fantasy | planned |
+| H7 | The Quiet Heist of Castle Verrow | Comedy caper | planned |
+| H8 | Seven Hundred Words for Rain | Magical realism | planned |
+| H9 | Thirteen Minutes of Thunder | Sports, mythic | planned |
+| H10 | The Lighthouse Debate Society | Contemporary school | planned |
