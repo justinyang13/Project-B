@@ -147,8 +147,8 @@ Production tooling and working notes live in `factory/` inside this repo (see it
 
 | # | Book | Genre | Status |
 |---|---|---|---|
-| H1 | The Atlas of Unmade Land | Epic fantasy, surveying | in production |
-| H2 | Orbit of the Last Orchard | Hopeful sci-fi | planned |
+| H1 | The Atlas of Unmade Land | Epic fantasy, surveying | Released v1.1 |
+| H2 | Orbit of the Last Orchard | Hopeful sci-fi | Released v1.0 |
 | H3 | Clockwork Summer | Steampunk adventure | planned |
 | H4 | The Tidewright's Daughter | Sea fantasy, tidal engineering | planned |
 | H5 | The Understudy Heir | Court intrigue | planned |

@@ -234,3 +234,12 @@ Note: no culture label issue; watch for stray lanterns (style prefix says amber 
 - Covers: front = frontC, back = backA. Known nit: Vane's "pale rigid face" renders grey on p119; Mags reads small/child-like (she is the shortest, 15).
 - Cover changed at user request (2026-10-09): front art = Project-I/wiki/fantasy-style/sample_atlas_s11.png cropped 1024x1536 (offset x=88) as images/cover_frontS.png; compose with make_covers.py the-atlas-of-unmade-land frontS backA.
 - 2026-10-09 USER: removed the High School shelf heading from the home page; one shelf, The Atlas of Unmade Land first (build_index.py ORDER).
+
+## 2026-10-10 H2 Orbit of the Last Orchard STARTED (user: "let's do next book")
+- Art style = anime (Atlas v1.1 recipe: `cast_first`, Qwen-Image 2.1, explicit skin/height/reminder per main character, see Project-I/wiki/fantasy-style.md). style.json converted (photoreal backup kept in `style_photoreal_backup`); old painterly cover candidates in books/orbit-of-the-last-orchard/images_painterly_v0/. Running `run_book.sh orbit-of-the-last-orchard` (text ~3h, images parallel). Then QC: read all chapters, check every contact sheet for skin/hair/height/outfit consistency, covers (NOCOVERS set: make frontA/B/C + backA manually), release with `released` date = today (first release).
+
+## 2026-10-10 H2 Orbit of the Last Orchard RELEASED (v1.0, released date 2026-10-10)
+- Anime art with cast-first prompts (same fix as Atlas). Claude read all 25 chapters; patches in factory/patches/orbit-of-the-last-orchard.py: Quill/Daro described two ways (Quill became a young red-haired engineer in ch24; Daro a baker in ch25), Brandt "before you were born" vs 11-year-old waiver, Voss throttling logic backwards, Daro look, hand-injury story, stray epigraphs on ch20 p3/p5 and ch25 p3, spin pull in the zero-g Spine, British spellings, em dashes.
+- Images: rerolled 40,75,86,88,100,109,111 (second small child / missing streak). Covers: front = frontA (Kess in the apple tree), back = backA; kicker shortened to "A Novel of Heat and Honesty" (two-line wrap).
+- Lessons: (1) a character introduced in the bible with one role (Councilor Quill, retired welder Daro) gets reassigned by Qwen in late chapters: grep every named side character's description across chapters in the read-through. (2) The page text flag `true` for Pim/Kess adds a second child on pages that mention both; reroll those. (3) First-time release date is now stamped by release.py.
+- NEXT: do not start H3 (Clockwork Summer) until the user says go.
