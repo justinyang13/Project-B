@@ -81,6 +81,7 @@ Image lessons: a "no sign" phrase primes signs, so for sign-heavy scenes say the
 4. Covers: pick front/back art; `python3 make_covers.py <slug> <front> <back>`; view `images/cover_front_final.png` and `cover_back_final.png`. Make new candidates by adding entries to `style.json` `covers` and `python3 gen_images.py <slug> covers <name>`.
 
 ## 6. Build and release
+0. Release date: `release.py` stamps `released` = today on the FIRST release only (kept on re-releases); the home page sorts newest first. See Project-B/CLAUDE.md "Release date".
 1. `python3 build_html.py <slug>` (reader) then `python3 release.py <slug>` (copies into `~/Code/Project-B/<slug>/`, writes `book.json`, builds zip `dist/<slug>.zip`).
 2. In `~/Code/Project-B`: append the slug to `ORDER` in `build_index.py` (new books go at the bottom), add a row to `SPEC.md` section 8, `python3 build_index.py`.
 3. `git add -A && git commit && git push`; then `gh release create <slug>-v1.0 ~/Code/Project-B/factory/dist/<slug>.zip --repo justinyang13/Project-B --latest=false --title "<Title> v1.0" --notes "..."`.

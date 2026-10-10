@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regenerate the library home page (index.html) from every <book>/book.json.
 To add a book: create a folder with an index.html reader and a book.json, then run this script."""
-import html, json, pathlib
+import datetime, html, json, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 # Display order on the home page. Any book not listed here is added at the bottom (alphabetically).
@@ -25,17 +25,21 @@ ORDER = [
 books = []
 for f in sorted(ROOT.glob("*/book.json")):
     b = json.loads(f.read_text()); b["dir"] = f.parent.name; books.append(b)
-books.sort(key=lambda b: ORDER.index(b["dir"]) if b["dir"] in ORDER else len(ORDER))
+# newest release first; books without a date go last (then the ORDER list)
+books.sort(key=lambda b: (b.get("released", ""), -(ORDER.index(b["dir"]) if b["dir"] in ORDER else len(ORDER))), reverse=True)
 
 def card(b):
     ages = f"Ages {html.escape(b['ages'])} · " if b.get("shelf") != "High School" else ""
+    rel = ""
+    if b.get("released"):
+        d = datetime.date.fromisoformat(b["released"]); rel = f" · Released {d.strftime('%b')} {d.day}, {d.year}"
     by = f" · by {html.escape(b['author'])}" if b.get("author") else ""
     return f'''    <a class="card" href="{html.escape(b['dir'])}/index.html">
       <img src="{html.escape(b['dir'])}/{html.escape(b['cover'])}" alt="Cover of {html.escape(b['title'])}" loading="lazy">
       <div class="info">
         <h2>{html.escape(b['title'])}</h2>
         <p class="sub">{html.escape(b['subtitle'])}</p>
-        <p class="meta">{ages}{b['pages']} pages · {b['chapters']} chapters{by}</p>
+        <p class="meta">{ages}{b['pages']} pages · {b['chapters']} chapters{rel}{by}</p>
         <p class="blurb">{html.escape(b['blurb'])}</p>
         <span class="read">Read the book →</span>
       </div>
