@@ -6,6 +6,7 @@ import html, json, pathlib
 ROOT = pathlib.Path(__file__).parent
 # Display order on the home page. Any book not listed here is added at the bottom (alphabetically).
 ORDER = [
+    "the-atlas-of-unmade-land",
     "juno-vale-and-the-tide-that-forgot",
     "mei-and-the-dragon-who-feared-thunder",
     "mo-and-the-mountain-that-walks",
@@ -39,15 +40,8 @@ def card(b):
         <span class="read">Read the book →</span>
       </div>
     </a>'''
-main_books = [b for b in books if b.get("shelf") != "High School"]
-hs_books = [b for b in books if b.get("shelf") == "High School"]
-cards = "\n".join(card(b) for b in main_books)
-hs_section = ""
-if hs_books:
-    hs_section = '''
-  <h2 class="shelfname" id="high-school">High School</h2>
-  <section class="shelf" aria-label="High School books">
-''' + "\n".join(card(b) for b in hs_books) + "\n  </section>"
+cards = "\n".join(card(b) for b in books)
+hs_section = ""  # High School shelf removed (user, 2026-10-09): all books on one shelf, Atlas first
 
 page = f'''<!DOCTYPE html>
 <html lang="en">
