@@ -150,6 +150,7 @@ Production tooling and working notes live in `factory/` inside this repo (see it
 | H1 | The Atlas of Unmade Land | Epic fantasy, surveying | Released v1.1 |
 | H2 | Orbit of the Last Orchard | Hopeful sci-fi | Released v1.0 |
 | H11 | The Lake That Swallowed the Sun | Taiwan-inspired fantasy, hydraulics (anime art; inspired by the Thao Sun Moon Lake legend, credited) | Released v1.0 |
+| H12 | The Last River Bearer | Chinese-inspired river-gorge fantasy, water engineering (fantasy-real art, wide scenic pages) | Released v1.0 |
 | H3 | Clockwork Summer | Steampunk adventure | planned |
 | H4 | The Tidewright's Daughter | Sea fantasy, tidal engineering | planned |
 | H5 | The Understudy Heir | Court intrigue | planned |
