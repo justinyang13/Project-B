@@ -6,6 +6,8 @@ import html, json, pathlib, subprocess, sys
 from lib.common import *
 slug = sys.argv[1]; B = book_dir(slug); OUT = B / "book"; (OUT / "img").mkdir(parents=True, exist_ok=True)
 M = load_json(B / "meta.json")
+ST = load_json(B / "style.json") if (B / "style.json").exists() else {}
+WIDE_POS = ST.get("wide_pages", [])
 
 def small(src, dst, px):
     if src.exists() and (not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime):
@@ -19,9 +21,10 @@ for f in sorted((B / "chapters").glob("ch*.json")):
     for i, p in enumerate(ch["pages"]):
         n += 1
         words = ch.get("words") if i == len(ch["pages"]) - 1 else None
-        small(B / "images" / f"p{n:03d}.png", OUT / "img" / f"p{n:03d}.jpg", 640)
+        pw = (i + 1) in WIDE_POS
+        small(B / "images" / f"p{n:03d}.png", OUT / "img" / f"p{n:03d}.jpg", 1100 if pw else 640)
         pages.append(dict(no=n, ch=ch["n"], ctitle=ch["title"] if i == 0 else "", part=ch["part"] if i == 0 else "",
-                          paras=[" ".join(x.split()) for x in p["text"].split("\n\n") if x.strip()] + (["\u25c6 Words to know: " + "; ".join(f"{w} \u2013 {d}" for w, d in words)] if words else []), img=f"img/p{n:03d}.jpg"))
+                          paras=[" ".join(x.split()) for x in p["text"].split("\n\n") if x.strip()] + (["\u25c6 Words to know: " + "; ".join(f"{w} \u2013 {d}" for w, d in words)] if words else []), img=f"img/p{n:03d}.jpg", pw=pw))
 for name in ("front", "back"):
     small(B / "images" / f"cover_{name}_final.png", OUT / "img" / f"cover_{name}.jpg", 1400)
 data = json.dumps(dict(title=M["title"], sub=M["subtitle"], author=M.get("author", ""), publisher=M.get("publisher", ""), pages=pages, chapters=chapters), ensure_ascii=False)

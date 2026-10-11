@@ -19,7 +19,7 @@ def parse(md):
             cur = dict(n=int(m[1]), title=m[2].strip(), part=part, synopsis="", beats=[]); chapters.append(cur)
         elif line.startswith("Synopsis:") and cur: cur["synopsis"] = line[9:].strip()
         elif line.startswith("Header:") and cur: cur["header"] = line[7:].strip()
-        elif (m := re.match(r"([1-5])\. (.+)", line)) and cur: cur["beats"].append(m[2].strip())
+        elif (m := re.match(r"([1-5])\. (.+)", line)) and cur: cur["beats"].append(re.sub(r"^WIDE:\s*", "", m[2].strip()))
     for c in chapters:
         assert len(c["beats"]) == 5, f"chapter {c['n']} has {len(c['beats'])} beats"
         assert c["synopsis"], f"chapter {c['n']} lacks synopsis"

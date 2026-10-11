@@ -14,6 +14,17 @@ ENV = dict(os.environ, DRAWTHINGS_MODELS_DIR=MODELS_DIR)
 MODEL = ST.get("model", "z_image_turbo_1.0_q8p.ckpt")
 CLI = os.path.expanduser(ST.get("cli", "draw-things-cli"))
 PW, PH = ST.get("page_w", 768), ST.get("page_h", 768)
+WIDE_POS = ST.get("wide_pages", [])           # positions (1-5) within a chapter that are wide scenic pages
+WW, WH = ST.get("wide_w", 1536), ST.get("wide_h", 864)
+def is_wide(n): return ((n - 1) % 5 + 1) in WIDE_POS
+def size(n): return (WW, WH) if is_wide(n) else (PW, PH)
+def stage_desc(look, n):
+    """look[4] = {"1-8": desc, "9-18": desc2, ...} chapter-range overrides (e.g. hair turning white)"""
+    ch = (n - 1) // 5 + 1
+    for k, v in (look[4] if len(look) > 4 else {}).items():
+        a, b = (int(x) for x in k.split("-"))
+        if a <= ch <= b: return v
+    return look[1]
 RR = B / "rerolls.json"
 rerolls = load_json(RR) if RR.exists() else {}
 
@@ -28,13 +39,13 @@ def render(prompt, out, w=768, h=768, seed=1, steps=None):
         print("retry", out.name, r.stderr[-200:], flush=True)
     return False
 
-def page_prompt(p, text=""):
+def page_prompt(p, text="", n=0):
     text = re.sub(r"^\s*\*[^\n]*\*\s*", "", text or "")  # ignore the italic chapter header line
     p = re.sub(r'["“][^"”]*["”]', '', p)
     p = re.sub(r'(?i)\b(sign|banner|label|note|letter|book|page|clipboard|list|card|poster)s?\b[^,.;]*?\b(reading|that says|saying|which says|labeled|marked|titled)\b[^,.;]*', r'\1', p)
     extra, remind = [], []
     for look in ST["looks"]:
-        pat, d = look[0], look[1]
+        pat, d = look[0], (stage_desc(look, n) if n else look[1])
         # third element True = main cast: also add the descriptor when the PAGE TEXT names the character (keeps looks consistent on pages whose IMAGE line says just "a girl")
         if (re.search(pat, p, re.I) or (len(look) > 2 and look[2] and text and re.search(pat, text))) and d not in extra:
             extra.append(d)
@@ -43,7 +54,8 @@ def page_prompt(p, text=""):
         # character sheet FIRST (strongest weight), scene next, short skin/hair reminder last
         cast = ("Fixed character designs, identical in every illustration of this book: " + " ".join(x.rstrip(".") + "." for x in extra) + " ") if extra else ""
         rem = (" Consistency check: " + " ".join(r.rstrip(".") + "." for r in remind)) if remind else ""
-        return ST["style"] + cast + "Scene: " + p.rstrip(".") + "." + rem + (" " + ST["suffix"] if ST.get("suffix") else "")
+        suf = (ST.get("suffix_wide") if (n and is_wide(n) and ST.get("suffix_wide")) else ST.get("suffix", ""))
+        return ST["style"] + cast + "Scene: " + re.sub(r"^WIDE:\s*", "", p).rstrip(".") + "." + rem + (" " + suf if suf else "")
     return ST["style"] + p + (". " + "; ".join(extra) if extra else "") + (". " + ST["suffix"] if ST.get("suffix") else "")
 
 def all_pages():
@@ -56,18 +68,21 @@ def seed_for(n): return ST.get("seed_base", 1000) + n + 1000 * rerolls.get(str(n
 
 if what == "pages":
     for n, p in all_pages():
-        render(page_prompt(p["image"], p.get("text", "")), IMG / f"p{n:03d}.png", PW, PH, seed_for(n))
+        render(page_prompt(p["image"], p.get("text", ""), n), IMG / f"p{n:03d}.png", *size(n), seed_for(n))
 elif what == "reroll":
     want = {int(x) for x in sys.argv[3:]}
     for n, p in all_pages():
         if n in want:
             rerolls[str(n)] = rerolls.get(str(n), 0) + 1; RR.write_text(json.dumps(rerolls))
             (IMG / f"p{n:03d}.png").unlink(missing_ok=True)
-            render(page_prompt(p["image"], p.get("text", "")), IMG / f"p{n:03d}.png", PW, PH, seed_for(n))
+            render(page_prompt(p["image"], p.get("text", ""), n), IMG / f"p{n:03d}.png", *size(n), seed_for(n))
+elif what == "prompt":
+    for n, p in all_pages():
+        if n in {int(x) for x in sys.argv[3:]}: print(n, size(n)); print(page_prompt(p["image"], p.get("text", ""), n)); print()
 elif what == "test":
     want = {int(x) for x in sys.argv[3:]}; T = B / "tmp"; T.mkdir(exist_ok=True)
     for n, p in all_pages():
-        if n in want: render(page_prompt(p["image"], p.get("text", "")), T / f"test_p{n:03d}.png", PW, PH, seed_for(n))
+        if n in want: render(page_prompt(p["image"], p.get("text", ""), n), T / f"test_p{n:03d}.png", *size(n), seed_for(n))
 elif what == "covers":
     names = sys.argv[3:] or list(ST["covers"])
     for k in names:
