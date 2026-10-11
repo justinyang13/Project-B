@@ -6,6 +6,8 @@ import datetime, html, json, pathlib
 ROOT = pathlib.Path(__file__).parent
 # Display order on the home page. Any book not listed here is added at the bottom (alphabetically).
 ORDER = [
+    "the-last-river-bearer",
+    "the-lake-that-swallowed-the-sun",
     "the-atlas-of-unmade-land",
     "juno-vale-and-the-tide-that-forgot",
     "mei-and-the-dragon-who-feared-thunder",
